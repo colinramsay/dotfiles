@@ -26,6 +26,8 @@ dbeaver
 gnome-terminal
 feh # feh --bg-fill someimage.jpg
 
+pacman -S xclip maim # clipboard & screenshots
+
 install https://github.com/Jguer/yay
 yay polybar yadm ripcord-arch-libs
 
