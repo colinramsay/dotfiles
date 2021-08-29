@@ -196,7 +196,7 @@ bindsym XF86AudioRaiseVolume exec amixer -c 2 -q set Speaker 5%+ unmute
 # decrease volume
 bindsym XF86AudioLowerVolume exec amixer -c 2 -q set Speaker 5%- unmute
 # mute volume
-bindsym XF86AudioMute exec amixer -c 2 -q set Speaker mute
+bindsym XF86AudioMute exec amixer -c 2 set Speaker toggle
 # pause / play / next / previous
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
