@@ -36,15 +36,16 @@ yay ttf-unifont
 yay nerd-fonts-overpass siji-ng # icons
 yay ttf-malayalam-font-dyuthi
 
-# grub
-mount EFI partition using gnome-disks and use grub-mkconfig to output to the correct OS folder
+# grub & boot
 
-sudo grub-mkconfig -o /run/media/root/BOOT/EFI/ubuntu/grub.cfg
+The EFI partition should be mounted to /boot when starting up. You can do this with `gnome-disks` (recommended) or fstab.
+
+To customise anything grubby, edit either /etc/defaults/grub or /etc/grub.d/ then use `grub-mkconfig` to write to the EFI partition.
 
 on the grub menu hit "c" to get to a console and enter "set" to see all set variables. this helps check if gfxmode is set correctly
 
 # sound
-pacman -R alsa-utils
+pacman -S alsa-utils
 
 Recovery
 ===
@@ -60,3 +61,4 @@ arch-chroot /mnt
 Then you can run commands as if you were booted into your system as normal. For example, you might want to re-run a kernel install:
 
 pacman -S linux
+
