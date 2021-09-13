@@ -44,4 +44,19 @@ sudo grub-mkconfig -o /run/media/root/BOOT/EFI/ubuntu/grub.cfg
 on the grub menu hit "c" to get to a console and enter "set" to see all set variables. this helps check if gfxmode is set correctly
 
 # sound
-pacman -S alsa-utils
+pacman -R alsa-utils
+
+Recovery
+===
+
+Using an Arch install USB drive, boot to a commandline. Mount the install drive, for example:
+
+mount -t ext4 /dev/nvme0n1p6 /mnt
+
+Then chroot into the install drive:
+
+arch-chroot /mnt
+
+Then you can run commands as if you were booted into your system as normal. For example, you might want to re-run a kernel install:
+
+pacman -S linux
