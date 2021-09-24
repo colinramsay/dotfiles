@@ -171,7 +171,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+x exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -200,6 +200,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
+bindsym $mod+Shift+e exec /usr/bin/thunar
 bindsym $mod+Shift+Return exec /usr/bin/firefox
 bindsym $mod+s exec rofi -show drun
 
@@ -210,12 +212,12 @@ gaps inner 40
 gaps outer 0
 gaps bottom 80
 
-exec --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id picom -b
-exec --no-startup-id ~/.fehbg &
 exec --no-startup-id mate-power-manager 
 exec --no-startup-id lxsession
 exec --no-startup-id /usr/bin/dunst
+exec --no-startup-id $HOME/.local/bin/spotlight.sh
+exec --no-startup-id $HOME/.config/polybar/launch.sh
 
 mode "CAPSLOCK" {
     bindsym Caps_Lock mode "default"
@@ -226,9 +228,9 @@ bindsym $mod+c exec --no-startup-id gsimplecal
 bindsym Ctrl+Print exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
 
 # increase volume
-bindsym XF86AudioRaiseVolume exec amixer -c 2 -q set Speaker 5%+ unmute
+bindsym F12 exec amixer -c 2 -q set Speaker 5%+ unmute
 # decrease volume
-bindsym XF86AudioLowerVolume exec amixer -c 2 -q set Speaker 5%- unmute
+bindsym F11 exec amixer -c 2 -q set Speaker 5%- unmute
 # mute volume
 bindsym XF86AudioMute exec amixer -c 2 set Speaker toggle
 # pause / play / next / previous
