@@ -10,6 +10,8 @@ https://medium.com/avalanche-of-sheep/your-guide-to-a-damn-light-arch-linux-with
 
 sudo pacman -S xorg xorg-xinit xterm i3-gaps rofi yadm
 
+i3 is started in /etc/X11/xinit/xinitrc 
+
 autologin:
 
 https://wiki.archlinux.org/title/LightDM
