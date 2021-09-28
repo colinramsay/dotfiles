@@ -27,16 +27,39 @@ vscode
 dbeaver
 gnome-terminal
 feh # feh --bg-fill someimage.jpg
+remmina
+freerdp
 
 pacman -S xclip maim # clipboard & screenshots
 
 install https://github.com/Jguer/yay
 yay polybar yadm ripcord-arch-libs
 
+# network
+
+Remove dhcpcd service & use networkmanager with a fixed IP
+
 # fonts
 yay ttf-unifont
 yay nerd-fonts-overpass siji-ng # icons
 yay ttf-malayalam-font-dyuthi
+
+# printer
+
+yay cups
+
+sudo systemctl start cups.service
+or
+sudo systemctl enable cups.service
+
+http://localhost:631/
+
+https://github.com/colinramsay/dell1320c-linux
+
+# bluetooth headset
+
+yay bluez-git blueman
+yay pipewire-pulse
 
 # grub & boot
 
