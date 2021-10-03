@@ -1,0 +1,1 @@
+find ~/projects -not -path '*/\.*' -name "Dockerfile" 2>/dev/null | xargs dirname | rofi -show run -dmenu | xargs code
