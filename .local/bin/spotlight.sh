@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# API=563492ad6f917000010000011355f9aa929c43d29ff16e25eb29588a
+
+# curl -H "Authorization: 563492ad6f917000010000011355f9aa929c43d29ff16e25eb29588a" \
+#   "https://api.pexels.com/v1/search?query=nature&per_page=1"
+
+
 systemd-cat -t spotlight -p info <<< "Starting, setting desktop to black"
 
 hsetroot -solid '#000000' &> /dev/null
@@ -85,7 +91,7 @@ then
 	rm "$previousImagePath"
 fi
 
-notify-send "$title ($searchTerms)" --icon=image-loading --urgency=low --hint=string:desktop-entry:spotlight
+notify-send "$title ($searchTerms)"
 systemd-cat -t spotlight -p info <<< "Background changed to $title ($searchTerms)"
 #"$HOME/.fehbg"
 
@@ -93,5 +99,17 @@ for i in {255..0..15}
 do 
 	hsetroot -fill "$spotlightPath/background.jpg" -alpha $i -solid '#000000' &> /dev/null
 done
+
+
+wal -i "$imagePath" --backend haishoku
+
+polybarbg="$(xrdb -query | grep "*color1:" | cut -f 2)"
+bow="$(./black-or-white.py "$polybarbg")"
+
+if [ "$bow" = "light" ]; then
+	echo "#55ffffff" > "$spotlightPath/polybarbg"
+else
+	echo "#55000000" > "$spotlightPath/polybarbg"
+fi
 
 systemd-cat -t spotlight -p info <<< "All done"
