@@ -55,10 +55,13 @@ module-margin-left = 1
 module-margin-right = 2
 
 ; https://gitlab.com/polybar/polybar/-/wikis/Fonts
-font-0 = Dyuthi:style=Regular:size=14;3
+ ; main bar font
+;font-0 = Dyuthi:style=Regular:size=14;3
+font-0 = SF Pro Rounded:style=Semibold
 ;font-0 = fixed:pixelsize=13;1
 font-1 = unifont:fontformat=truetype:size=12:antialias=true;0 
 font-2 = siji:pixelsize=12;1 
+; cpu/memory/disk icons
 font-3 = Overpass Nerd Font Mono:style=Thin,Regular:size=11;1
 modules-left = i3
 ; modules-center = mpd

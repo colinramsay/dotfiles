@@ -1,8 +1,9 @@
 [global]
-    frame_width = 1
+    frame_width = 0
     frame_color = "#788388"
+    highlight = "#ffffff"
     
-    font = Noto Sans 10
+    font = SF Compact Rounded 12
     
     # Allow a small subset of html markup:
     #   <b>bold</b>
@@ -68,7 +69,7 @@
     # the top and down respectevly.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "0x4-25+25"
+    geometry = "0x8-25+50"
     
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
@@ -119,14 +120,14 @@
     # Draw a line of "separator_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
-    separator_height = 1
+    separator_height = 0
     
     # Padding between text and separator.
     # padding = 8
-    padding = 8
+    padding = 16
     
     # Horizontal padding.
-    horizontal_padding = 10
+    horizontal_padding = 16
     
     # Define a color for the separator.
     # possible values are:

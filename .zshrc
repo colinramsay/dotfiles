@@ -1,3 +1,11 @@
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_STATE_HOME=$HOME/.local/state
+
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -99,8 +107,31 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ei3=code ~/.i3/config
+alias ei3=code ~/.config/i3/config
 
 source /usr/share/nvm/init-nvm.sh
 alias config='/usr/bin/git --git-dir=/home/colinramsay/.cfg/ --work-tree=/home/colinramsay'
 export EDITOR="code --wait"
+
+eval "$(rbenv init - zsh)"
+
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
